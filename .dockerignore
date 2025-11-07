@@ -1,5 +1,18 @@
+# Ignora todo por defecto
 *
+
+# Mantén los archivos necesarios para compilar con Maven Wrapper
+!mvnw
+!mvnw.cmd
+!.mvn/**
+
+# Incluye el código fuente y recursos
+!src/**
+!pom.xml
+!Dockerfile
+
+# Mantén los runners y librerías si ya están construidos
 !target/*-runner
 !target/*-runner.jar
-!target/lib/*
-!target/quarkus-app/*
+!target/lib/**
+!target/quarkus-app/**
