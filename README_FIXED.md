@@ -1,6 +1,6 @@
 # Quarkus Microservice - ARREGLADO ✅
 
-Este proyecto de Quarkus ha sido arreglado y ahora funciona correctamente.
+Este proyecto de Quarkus ha sido arreglado y ahora funciona correctamente con soporte para GraalVM.
 
 ## Problemas que se arreglaron:
 
@@ -9,6 +9,8 @@ Este proyecto de Quarkus ha sido arreglado y ahora funciona correctamente.
    - Actualizada la versión de Quarkus a 3.6.4 (estable)
    - Agregados plugins necesarios (compiler, surefire, failsafe)
    - Agregadas propiedades faltantes
+   - **NUEVO**: Configuración para GraalVM native compilation
+   - **NUEVO**: Profile `native` para compilación nativa
 
 2. **GreetingResource.java**:
    - Agregada anotación `@Transactional` al método POST
@@ -20,6 +22,10 @@ Este proyecto de Quarkus ha sido arreglado y ahora funciona correctamente.
 
 4. **Datos de prueba**:
    - Agregado archivo `import.sql` con datos iniciales
+
+5. **GraalVM Native**:
+   - Configuración para container-build nativo
+   - Empaquetado como uber-jar por defecto
 
 ## Cómo usar:
 
@@ -41,6 +47,20 @@ mvn clean compile
 ### Empaquetar:
 ```bash
 mvn package
+```
+
+### Compilar ejecutable nativo (GraalVM):
+```bash
+# Con Docker (recomendado)
+mvn package -Dnative
+
+# Con GraalVM local instalado
+mvn package -Dnative -Dquarkus.native.container-build=false
+```
+
+### Ejecutar ejecutable nativo:
+```bash
+./target/quarkus-microservice-1.0.0-SNAPSHOT-runner
 ```
 
 ## Endpoints disponibles:
